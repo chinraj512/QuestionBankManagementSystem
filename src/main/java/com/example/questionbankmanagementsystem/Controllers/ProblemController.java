@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/apis/v1/problems")
@@ -19,7 +20,12 @@ public class ProblemController{
 
     @GetMapping
     public ResponseEntity<List<Problem>> getProblemList(){
-        return ResponseEntity.ok( null );
+        return ResponseEntity.ok(problemService.getProblemList());
+    }
+
+    @GetMapping("/{problemId}")
+    public ResponseEntity<Optional<Problem>> getProblemById(@PathVariable("problemId") long id){
+        return ResponseEntity.ok(problemService.getProblemById(id));
     }
 
     @PostMapping
