@@ -1,8 +1,11 @@
 package com.example.questionbankmanagementsystem.Modals;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 public class Algorithm{
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -20,4 +23,9 @@ public class Algorithm{
 
     @Lob
     private String code;
+
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "editorial_id")
+    private Editorial editorial;
 }

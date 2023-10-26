@@ -14,8 +14,6 @@ import javax.validation.constraints.NotNull;
 @ToString
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@Setter
-@Getter
 public class TestCases{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -2,10 +2,12 @@ package com.example.questionbankmanagementsystem.Modals;
 
 import com.example.questionbankmanagementsystem.Modals.Utils.SubmissionStatus;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.Date;
 
 @Entity
+@Data
 public class Submission{
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)

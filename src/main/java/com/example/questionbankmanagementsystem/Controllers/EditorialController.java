@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/apis/v1/editorial")
+@RequestMapping("/apis/v1/editorials")
 public class EditorialController{
 
     @Autowired
     EditorialService editorialService;
 
-    @GetMapping("/problemId")
+
+    @GetMapping("/{problemId}")
     public ResponseEntity<Optional<Editorial>> getEditorialByProblemId(@PathVariable("problemId") long problemId){
         return ResponseEntity.ok(editorialService.getEditorialByProblemId(problemId));
     }

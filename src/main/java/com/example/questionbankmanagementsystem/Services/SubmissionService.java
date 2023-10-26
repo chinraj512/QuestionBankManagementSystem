@@ -2,6 +2,7 @@ package com.example.questionbankmanagementsystem.Services;
 
 import com.example.questionbankmanagementsystem.Modals.Problem;
 import com.example.questionbankmanagementsystem.Modals.Submission;
+import com.example.questionbankmanagementsystem.Modals.TestCases;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -28,5 +29,11 @@ public class SubmissionService{
         CriteriaQuery<Submission> criteriaQuery=criteriaBuilder.createQuery(Submission.class);
         Root<Submission> root=criteriaQuery.from(Submission.class);
         return entityManager.createQuery(criteriaQuery).getResultList( );
+    }
+
+    @Transactional
+    public Submission addSubmissionForProblem(Submission submission){
+        entityManager.persist(submission);
+        return entityManager.find(Submission.class,submission.getId());
     }
 }
